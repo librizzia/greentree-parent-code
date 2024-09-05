@@ -1,0 +1,209 @@
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#toast {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  color: #fff;
+  text-align: center; /* Centered text */
+  border-radius: 8px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+.default-toast{
+  background-color: #0172ad; /* Black background color */
+}
+
+.error-toast {
+  background-color: #D93526;
+  /* background: #F06048; */
+  /* Add any other styles you want for error toast */
+}
+
+.success-toast {
+  background-color: #00A66E;
+  /* Add any other styles you want for success toast */
+}
+
+/* Show the snackbar / toast noficicationwhen clicking on show/hide message buttons */
+#toast.show {
+  visibility: visible;
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  Delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from { bottom: 0; opacity: 0; }
+  to { bottom: 30px; opacity: 1; }
+}
+
+@keyframes fadein {
+  from { bottom: 0; opacity: 0; }
+  to { bottom: 30px; opacity: 1; }
+}
+
+@-webkit-keyframes fadeout {
+  from { bottom: 30px; opacity: 1; }
+  to { bottom: 0; opacity: 0; }
+}
+
+@keyframes fadeout {
+  from { bottom: 30px; opacity: 1; }
+  to { bottom: 0; opacity: 0; }
+}
+
+/* Styles for the timer container */
+#timer-container {
+  display: none;
+  text-align: center;
+}
+
+/* Animation for fading in and out */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+/* Apply fade in and out animation to the timer */
+#timer-container.fade-in {
+  animation: fadeIn 0.25s forwards;
+}
+
+#timer-container.fade-out {
+  animation: fadeOut 0.25s forwards;
+}
+
+#website-title {
+  margin: 0;
+}
+
+#website-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* old CSS for form */
+/* #form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0em 0.5em 0em 0.5em;
+} */
+
+nav {
+  margin-right: 1rem;
+}
+
+.dropdown {
+  margin-left: auto;
+}
+
+.confirmation-buttons{
+  height: 2.5rem;
+  width: 2.5rem;
+  /* border: 20px; */
+  /* color: black; */
+  padding: 0%;
+  margin-top: 1rem;
+}
+
+.confirmation-buttons.confirm{
+  border-color: #00A66E;
+  background-color: #00A66E;
+}
+
+.confirmation-buttons.confirm:hover{
+  /* border-color: black; */
+  background-color: #008357;
+}
+
+.confirmation-buttons.deny{
+  border-color: #D93526;
+  background-color: #D93526;
+}
+
+.confirmation-buttons.deny:hover{
+  /* border-color: black; */
+  background-color: #c72f21;
+}
+
+#messageInput {
+  text-transform: uppercase;
+}
+
+#messageInput::placeholder {
+  text-transform: none;
+}
+
+#showButton{
+  width: 49.9%;
+}
+
+#hideButton{
+  width: 49%;
+}
+
+#theme-toggle {
+  margin-right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#theme-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+#theme-icon {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 578px) {
+  #parentCodeForm{
+    padding-top: 15%;
+  }
+  #parentCodeInputLabel{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  #showButton{
+    width: 100%;
+  }
+  #hideButton{
+    width: 100%;
+  }
+  #parentCodeDuration{
+    font-size: 20px;
+  }
+  #timer{
+    font-size: 48px;
+  }
+}

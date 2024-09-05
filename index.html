@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <title>Parent Code Control</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/pico.min.css">
+    <meta name="color-scheme" content="light dark" />
+</head>
+<body>
+    <header id="website-header">
+      <h2 id="website-title" style="padding-left: 1rem;"> Parent Code Control</h2>
+      <a id="theme-toggle" href="#">
+        <span id="theme-icon" class="hidden"></span> <!-- Initially hide the icon with the hidden class -->
+    </a>    
+    </header>
+
+  <!-- Error Modal -->
+  <dialog id="error-modal">
+    <article>
+      <header>
+        <button
+        aria-label="Close"
+        rel="prev"
+        data-target="error-modal"
+        onclick="toggleModal(event)"
+      ></button>
+        <h4>
+          Couldn't connect to PC
+        </h4>
+      </header>
+      <p>
+        We encountered an issue connecting to the presentation computer. 
+        Please contact a member of the projection team using the radio for assistance.
+      </p>
+    </article>
+  </dialog>
+
+    <!-- Form container with limited width -->
+    <form class="container" id="parentCodeForm" onsubmit="submitForm(event)">
+        <div id="form-container" style="max-width: 600px; margin: 0 auto;">
+            <!-- Label and input with Pico CSS validation styles -->
+            <label for="messageInput" id="parentCodeInputLabel"><b>Enter Parent Code:</b></label>
+            <input type="text" id="messageInput" placeholder="Code (123, ABC)" maxlength="5" autocomplete="off" oninput="updateLiveText(this.value)" aria-describedby="message-helper" />
+            <small id="message-helper" style="color: red;"></small>
+
+            <!-- Centered button container within the form -->
+            <div style="text-align: center; margin-top: 20px;">
+              <div style="margin-top: 10px;">
+                  <button id="showButton" class="primary" type="button" onclick="showMessage()">Show Message</button>
+                  <button id="hideButton" class="secondary" type="button" onclick="hideMessage()">Hide Message</button>
+              </div>
+              <!-- <button id="toggleButton" type="button" onclick="toggleDataVisibility()">Show Data</button> -->
+          </div>
+        </div>
+    </form>
+
+    <!-- Timer Display -->
+    <div id="timer-container" class="fade">
+        <p id="parentCodeDuration">Parent Code <kbd>(CODE)</kbd> has been on screen for:</p>
+        <h1 id="timer"></h1>
+        <div id="confirmation-options">
+          <!-- <button onclick="" class="confirmation-buttons confirm">✓</button> -->
+          <button title="Hide Message" onclick="hideMessage()" class="confirmation-buttons deny">⨯</button>
+        </div>
+    </div>
+
+    <!-- Response Container -->
+    <div id="error-container" style="color: red; margin-top: 10px; padding: 10px;"></div>
+    <!-- <div id="response-container"></div> -->
+
+    <!-- Toast Notification -->
+    <div id="toast">Testing 1 2 3...</div> 
+
+    <!-- JavaScript files. Config comes first, or API won't work -->
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/connection.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/modal.js"></script>
+    <script src="./scripts/theme-switcher.js"></script>
+
+</body>
+</html>
