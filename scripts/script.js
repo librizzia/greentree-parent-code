@@ -51,9 +51,9 @@ function makeApiRequest() {
             }
         ],
         "theme": {
-            "name": "",
-            "uuid": "",
-            "index": 0
+            "name": "Message",
+            "index": 120,
+            "uuid": "E82F60A9-6E17-48D9-9139-14D8FD798EBA"
         }
     };
 
@@ -73,7 +73,8 @@ function makeApiRequest() {
     })
     .then(data => {
         // Display the JSON response if needed
-        // displayResponse(data);
+        // displayResponse(data);\
+        console.log(data)
     })
     .catch(error => {
         console.error('Error fetching data 123:', error);
@@ -223,6 +224,7 @@ function showMessage(inputValue) {
             console.log('Message displayed successfully:', jsonData);
         } else {
             console.log('Message displayed successfully, but response was empty.');
+            console.log(data)
             showToast("Message Displayed", "success-toast");
             resetTimer();
             startTimer();
@@ -264,7 +266,7 @@ function hideMessage() {
 
             // Log success if the response is not JSON
             console.log('Message cleared successfully.');
-            showToast("Message cleared", "success-toast"); // Provide the style class here
+            showToast("Message cleared", "success-toast");
             stopTimer();
         })
         .catch(error => {
@@ -272,7 +274,7 @@ function hideMessage() {
             displayErrorModalFromScript("❌ Could not clear message!");
         })
         .finally(() => {
-            clearTimeout(timeoutId); // Clear the timeout to avoid potential memory leaks
+            clearTimeout(timeoutId);
         });
 }
 
@@ -322,7 +324,7 @@ function showToast(message, style) {
     // After 3 seconds, remove the show class from the toast DIV, reset the message, and remove the style class
     setTimeout(function () {
         toast.classList.remove("show");
-        toast.textContent = ""; // Reset to default message
+        toast.textContent = "";
         toast.classList.remove(style);
     }, 3000);
 }
