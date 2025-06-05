@@ -1,5 +1,3 @@
-# GreenTree Parent Code
-
 ## Demo
 ### Parent Website Screen
 ![Parent Website Screen](./img/readme/parent-website-screen.gif)
@@ -11,6 +9,11 @@
 GreenTree Parent Code is a web-based application designed for volunteers at the child care front desk of church to parent pickup codes to the church to pickup their children. 
 The project utilizes Pico CSS for styling and includes custom styles defined in `styles.css`. It also incorporates JavaScript functionality for dynamic features such as theme switching, modal interactions, and toast notifications.
 
+## Usage
+- Open the web page in a browser.
+- Add the parent code (ABC, 123) to the input, and click "Show Message" to show message on screens.
+- Clear the message off screen by clicking "Hide Message" or the "X" button below message duration
+  
 ## Features
 - **Responsive Design**: The application is styled using Pico CSS and custom CSS to ensure responsiveness across various screen sizes.
 - **ProPresenter API Integration**: Interacts with the ProPresenter API for live updates and changes to congregation screens.
@@ -22,7 +25,7 @@ The project utilizes Pico CSS for styling and includes custom styles defined in 
 ## Local
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/librizzia/greentree-parent-code.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -32,12 +35,11 @@ The project utilizes Pico CSS for styling and includes custom styles defined in 
 
 4. Open `index.html` in your browser to view the webpage.
 
-## Website
-- Open the web page in a browser.
-- Use the theme toggle button to switch between light and dark modes.
+
 
 ## Dependencies
 - **Pico CSS**: A lightweight CSS framework for styling.
+- **ProPresenter 7**: ProPresenter 7 must be running on the same local network as the computer hosting this webpage.
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
